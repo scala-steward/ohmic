@@ -7,10 +7,10 @@ import scala.language.implicitConversions
 class ResistorSpec extends WordSpec with Matchers {
 
   "Resistors series are defined by base values" in {
-    Resistor.e24BaseValues should contain allOf(
+    Resistor.baseValues should contain allOf( // e24 series
       10, 11, 12, 13, 15, 16, 18, 20, 22, 24, 27, 30,
       33, 36, 39, 43, 47, 51, 56, 62, 68, 75, 82, 91)
-    Resistor.e24BaseValues.size should be(24)
+    Resistor.baseValues.size should be(216)   // fullSeries
   }
 
   "Resistor multipliers will include unit to mega" in {
@@ -19,22 +19,16 @@ class ResistorSpec extends WordSpec with Matchers {
   }
 
   "A set of Resistors will be the base values with all multipliers" in {
-    val resistors = Resistor.e24Set
-    resistors.size should be (Resistor.e24BaseValues.size * Resistor.multiples.size)
+    val resistors = Resistor.fullSet
+    resistors.size should be (Resistor.baseValues.size * Resistor.multiples.size)
 
     val values = resistors.map(_.value)
-    values should contain allElementsOf(Resistor.e24BaseValues)
-    values should contain allElementsOf(Resistor.e24BaseValues.map(_ * 10))
-    values should contain allElementsOf(Resistor.e24BaseValues.map(_ * 100))
-    values should contain allElementsOf(Resistor.e24BaseValues.map(_ * 1000))
-    values should contain allElementsOf(Resistor.e24BaseValues.map(_ * 10000))
-    values should contain allElementsOf(Resistor.e24BaseValues.map(_ * 100000))
-  }
-
-  "The e24 set of Resistors are 5% tolerence" in {
-    val tolerances = Resistor.e24Set.map(_.tolerance)
-    tolerances.size should be(1)
-    tolerances.head should be(Tolerance.Gold)
+    values should contain allElementsOf(Resistor.baseValues)
+    values should contain allElementsOf(Resistor.baseValues.map(_ * 10))
+    values should contain allElementsOf(Resistor.baseValues.map(_ * 100))
+    values should contain allElementsOf(Resistor.baseValues.map(_ * 1000))
+    values should contain allElementsOf(Resistor.baseValues.map(_ * 10000))
+    values should contain allElementsOf(Resistor.baseValues.map(_ * 100000))
   }
 
   "A Resistor's code will include R, K & M multipliers" in {
@@ -48,19 +42,17 @@ class ResistorSpec extends WordSpec with Matchers {
     resistorWithValue(220000000).code should be("220M")
   }
 
-  def resistorWithValue(v: Long) = Resistor.e24Set.filter(_.value == v).head
+  def resistorWithValue(v: Long) = Resistor.fullSet.filter(_.value == v).head
 
   "A Resistor will be colour coded for base value, multiplier and tolerance" in {
     for {
-      value <- Resistor.e24BaseValues
+      value <- Resistor.baseValues
       multiple <- Resistor.multiples
     } yield {
       val resistor = resistorWithValue((value * multiple.value).toLong)
       val codes = resistor.colourCodes
       import Resistor._
-      val expectedCodes = resistor.bands.map(bandToBandColour) :+
-        multiplierToBandColour(resistor.multiplier) :+
-        toleranceToBandColour(resistor.tolerance)
+      val expectedCodes = resistor.bands.map(bandToBandColour) :+ multiplierToBandColour(resistor.multiplier)
       codes should contain theSameElementsInOrderAs(expectedCodes)
     }
   }
