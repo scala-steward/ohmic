@@ -1,7 +1,7 @@
 package com.nigeleke.resistors.core
 
 import org.scalatest.{Matchers, WordSpec}
-
+import squants.electro._
 import scala.language.implicitConversions
 
 class ResistorSpec extends WordSpec with Matchers {
@@ -23,33 +23,33 @@ class ResistorSpec extends WordSpec with Matchers {
     resistors.size should be (Resistor.baseValues.size * Resistor.multiples.size)
 
     val values = resistors.map(_.value)
-    values should contain allElementsOf(Resistor.baseValues)
-    values should contain allElementsOf(Resistor.baseValues.map(_ * 10))
-    values should contain allElementsOf(Resistor.baseValues.map(_ * 100))
-    values should contain allElementsOf(Resistor.baseValues.map(_ * 1000))
-    values should contain allElementsOf(Resistor.baseValues.map(_ * 10000))
-    values should contain allElementsOf(Resistor.baseValues.map(_ * 100000))
+    values should contain allElementsOf(Resistor.baseValues.map(Ohms(_)))
+    values should contain allElementsOf(Resistor.baseValues.map(Ohms(_) * 10))
+    values should contain allElementsOf(Resistor.baseValues.map(Ohms(_) * 100))
+    values should contain allElementsOf(Resistor.baseValues.map(Ohms(_) * 1000))
+    values should contain allElementsOf(Resistor.baseValues.map(Ohms(_) * 10000))
+    values should contain allElementsOf(Resistor.baseValues.map(Ohms(_) * 100000))
   }
 
-  "A Resistor's code will include R, K & M multipliers" in {
-    resistorWithValue(22).code should be("22R")
-    resistorWithValue(220).code should be("220R")
-    resistorWithValue(2200).code should be("2K2")
-    resistorWithValue(22000).code should be("22K")
-    resistorWithValue(220000).code should be("220K")
-    resistorWithValue(2200000).code should be("2M2")
-    resistorWithValue(22000000).code should be("22M")
-    resistorWithValue(220000000).code should be("220M")
+  "A Resistor's formatted value will include unit, kilo & mega multipliers" in {
+    resistorWithValue(Ohms(22)).formattedValue should be("22.0 Ω")
+    resistorWithValue(Ohms(220)).formattedValue should be("220.0 Ω")
+    resistorWithValue(Ohms(2200)).formattedValue should be("2.2 kΩ")
+    resistorWithValue(Ohms(22000)).formattedValue should be("22.0 kΩ")
+    resistorWithValue(Ohms(220000)).formattedValue should be("220.0 kΩ")
+    resistorWithValue(Ohms(2200000)).formattedValue should be("2.2 MΩ")
+    resistorWithValue(Ohms(22000000)).formattedValue should be("22.0 MΩ")
+    resistorWithValue(Ohms(220000000)).formattedValue should be("220.0 MΩ")
   }
 
-  def resistorWithValue(v: Long) = Resistor.fullSet.filter(_.value == v).head
+  def resistorWithValue(v: ElectricalResistance) = Resistor.fullSet.filter(_.value == v).head
 
   "A Resistor will be colour coded for base value, multiplier and tolerance" in {
     for {
       value <- Resistor.baseValues
       multiple <- Resistor.multiples
     } yield {
-      val resistor = resistorWithValue((value * multiple.value).toLong)
+      val resistor = resistorWithValue(Ohms(value * multiple.value))
       val codes = resistor.colourCodes
       import Resistor._
       val expectedCodes = resistor.bands.map(bandToBandColour) :+ multiplierToBandColour(resistor.multiplier)

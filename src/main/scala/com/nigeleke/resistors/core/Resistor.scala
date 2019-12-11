@@ -1,5 +1,10 @@
 package com.nigeleke.resistors.core
 
+import squants.electro._
+import squants.experimental.formatter.DefaultFormatter
+import squants.experimental.unitgroups.UnitGroup
+import squants.experimental.unitgroups.si.strict.implicits._
+
 import scala.language.implicitConversions
 
 case class Resistor(bands: Seq[Band], multiplier: Multiplier)
@@ -45,39 +50,25 @@ object Resistor {
   
   lazy val multiples = Multiplier.values()
 
-  lazy val fullSet = (for {
+  lazy val fullSet = for {
     baseValue <- baseValues
     multiple <- multiples
   } yield {
     val baseValueString = baseValue.toString
     val bands = baseValueString.map(Band.from(_))
     Resistor(bands, multiple)
-  }).toSet
+  }
 
   implicit class ResistorOps(r: Resistor) {
     lazy val significantBandsValue : Int = r.bands.foldLeft(0)((v, b) => v * 10 + b.value)
     lazy val multiple : Double = r.multiplier.value
 
-    lazy val value : Long = (significantBandsValue * multiple).toLong
+    lazy val value : ElectricalResistance = Ohms(significantBandsValue * multiple)
 
-    lazy val code = {
-      val lenValueString = value.toString.length
-
-      val (divisor, divisorString) = ((lenValueString - 1) / 3) match {
-        case 0 => (1, "R")
-        case 1 => (1000, "K")
-        case _ => (1000000, "M")
-      }
-
-      val mod = r.value / divisor
-      val modString = mod.toString
-
-      def stripTrailingZeroes(s: String) : String = s.reverse.dropWhile(_ == '0').reverse
-
-      val remainder = r.value - (mod * divisor)
-      val remainderString = stripTrailingZeroes(remainder.toString)
-
-      s"$modString$divisorString$remainderString"
+    lazy val formattedValue : String = {
+      val unitGroup = implicitly[UnitGroup[ElectricalResistance]]
+      val formatter = new DefaultFormatter(unitGroup)
+      formatter.inBestUnit(value).toString()
     }
 
     lazy val colourCodes : Seq[BandColour] = r.bands.map(bandToBandColour) :+ multiplierToBandColour(r.multiplier)
