@@ -28,8 +28,12 @@ class ResistorDocumentSpec extends WordSpec with Matchers {
     val tempFile = tempFolder.resolve("dataTest.xlsx")
 
     val document = ResistorDocument()
-    val resistor = Resistor(25, Multiplier.multipliers.head)
-    document.withResistor(resistor)
+
+    val bandColours1 = Seq(BandColour.White, BandColour.Red, BandColour.Orange)
+    val bandColours2 = bandColours1 :+ BandColour.Yellow
+    val row = ResistorRow(25, "ohm", Seq(bandColours2, bandColours1))
+
+    document.withRow(row)
     document.saveAs(tempFile)
 
     Files.exists(tempFile) should be(true)
@@ -43,10 +47,12 @@ class ResistorDocumentSpec extends WordSpec with Matchers {
     val tempFile = tempFolder.resolve("dataTest2.xlsx")
 
     val document = ResistorDocument()
-    val resistors = Seq(
-      Resistor(25, Multiplier.multipliers.head),
-      Resistor(183, Multiplier.multipliers.head))
-    document.withResistors(resistors)
+    val bandColours1 = Seq(BandColour.White, BandColour.Red, BandColour.Orange)
+    val bandColours2 = bandColours1 :+ BandColour.Yellow
+    val row = ResistorRow(25, "ohm", Seq(bandColours2, bandColours1))
+    val rows = Seq(row, row, row)
+
+    document.withRows(rows)
     document.saveAs(tempFile)
 
     Files.exists(tempFile) should be(true)

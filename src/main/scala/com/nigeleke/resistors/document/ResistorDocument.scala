@@ -45,20 +45,24 @@ object ResistorDocument {
       d
     }
 
-    def withResistor(resistor: Resistor) = {
-
-      val value = resistor.formattedValue
-      val colours = resistor.colourCodes.map(cc => s"$cc").mkString(" - ")
+    def withRow(resistorRow: ResistorRow) = {
 
       val row = nextRow()
-      row.createCell(0).setCellValue(value.value)
-      row.createCell(1).setCellValue(value.unit.symbol)
+      row.createCell(0).setCellValue(resistorRow.baseValue)
+      row.createCell(1).setCellValue(resistorRow.symbol)
+
+      val colours = resistorRow.colours
+        .filter(_.size != 0)
+        .sortBy(_.size)
+        .map(_.mkString(" - "))
+        .mkString("\n")
+
       row.createCell(2).setCellValue(colours)
 
       d
     }
 
-    def withResistors(resistors: Seq[Resistor]) = resistors.foldLeft(d)((d0, r) => d0.withResistor(r))
+    def withRows(rows: Seq[ResistorRow]) = rows.foldLeft(d)((d0, r) => d0.withRow(r))
 
   }
 }

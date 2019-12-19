@@ -77,7 +77,7 @@ class ResistorSpec extends WordSpec with Matchers {
     extraValues should be(empty)
   }
 
-  "A Resistor's formatted value will include unit, kilo & mega multipliers" in {
+  "A Resistor's formatted value will include symbol, kilo & mega multipliers" in {
     resistorWithValue(Ohms(22)).formattedValue.toString should be("22.0 Ω")
     resistorWithValue(Ohms(220)).formattedValue.toString should be("220.0 Ω")
     resistorWithValue(Ohms(2200)).formattedValue.toString should be("2.2 kΩ")
