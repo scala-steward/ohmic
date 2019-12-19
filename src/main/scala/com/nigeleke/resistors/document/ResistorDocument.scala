@@ -8,6 +8,8 @@ import org.apache.poi.xssf.usermodel._
 import squants.Length
 import squants.space.Centimeters
 
+import scala.language.implicitConversions
+
 case class ResistorDocument(document: XSSFWorkbook)
 
 object ResistorDocument {
@@ -26,7 +28,8 @@ object ResistorDocument {
     def withHeader() = {
       val row = nextRow()
       row.createCell(0).setCellValue("Value")
-      row.createCell(1).setCellValue("Colours")
+      row.createCell(1).setCellValue("Unit")
+      row.createCell(2).setCellValue("Colours")
       d
     }
 
@@ -48,8 +51,9 @@ object ResistorDocument {
       val colours = resistor.colourCodes.map(cc => s"$cc").mkString(" - ")
 
       val row = nextRow()
-      row.createCell(0).setCellValue(value)
-      row.createCell(1).setCellValue(colours)
+      row.createCell(0).setCellValue(value.value)
+      row.createCell(1).setCellValue(value.unit.symbol)
+      row.createCell(2).setCellValue(colours)
 
       d
     }
@@ -57,7 +61,4 @@ object ResistorDocument {
     def withResistors(resistors: Seq[Resistor]) = resistors.foldLeft(d)((d0, r) => d0.withResistor(r))
 
   }
-
-  private val maxBandNameLength = (Band.values().map(_.name().length) ++ Multiplier.values.map(_.name().length)).max
-
 }

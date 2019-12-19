@@ -1,24 +1,20 @@
-package com.nigeleke.resistors.core;
+package com.nigeleke.resistors.core
 
-import javafx.scene.paint.Color;
+sealed trait BandColour
 
-public enum BandColour {
-    Black(Color.BLACK),
-    Brown(Color.BROWN),
-    Red(Color.RED),
-    Orange(Color.ORANGE),
-    Yellow(Color.YELLOW),
-    Green(Color.GREEN),
-    Blue(Color.BLUE),
-    Violet(Color.VIOLET),
-    Grey(Color.GREY),
-    White(Color.WHITE),
-    Gold(Color.GOLD),
-    Silver(Color.SILVER);
+object BandColour {
 
-    private Color colour;
+  case object Black extends BandColour
+  case object Brown extends BandColour
+  case object Red extends BandColour
+  case object Orange extends BandColour
+  case object Yellow extends BandColour
+  case object Green extends BandColour
+  case object Blue extends BandColour
+  case object Violet extends BandColour
+  case object Grey extends BandColour
+  case object White extends BandColour
+  case object Gold extends BandColour
+  case object Silver extends BandColour
 
-    BandColour(Color colour) {
-        this.colour = colour;
-    }
 }

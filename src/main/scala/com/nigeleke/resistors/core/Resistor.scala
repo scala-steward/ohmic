@@ -1,46 +1,42 @@
 package com.nigeleke.resistors.core
 
+import squants.Quantity
 import squants.electro._
-import squants.experimental.formatter.DefaultFormatter
+import squants.experimental.formatter.{DefaultFormatter, Formatter}
 import squants.experimental.unitgroups.UnitGroup
 import squants.experimental.unitgroups.si.strict.implicits._
 
-import scala.jdk.CollectionConverters._
 import scala.language.implicitConversions
 
-case class Resistor(baseValue: Int, multiplier: Multiplier)
+case class Resistor(base: Base, multiplier: Multiplier)
 
 object Resistor {
 
-  lazy val multiples = Multiplier.values()
-
   def setFor(series: Series) = (for {
-    baseValue <- series.baseValues.asScala
-    mulitple <- multiples
-  } yield Resistor(baseValue, mulitple)).toSet
+    baseValue <- series.values
+    multiplier <- Multiplier.multipliers
+  } yield Resistor(baseValue, multiplier)).toSet
 
-  lazy val fullSet = Series.values().foldLeft(Set.empty[Resistor])((set, series) => set ++ setFor(series))
+  lazy val fullSet = Series.all.foldLeft(Set.empty[Resistor])((set, series) => set ++ setFor(series))
 
   implicit class ResistorOps(r: Resistor) {
-    lazy val baseValue : Int = r.baseValue
-    lazy val multiple : Double = r.multiplier.value
+    lazy val base = r.base
+    lazy val multiplier = r.multiplier
 
-    lazy val value : ElectricalResistance = Ohms(r.baseValue * multiple)
+    lazy val value : ElectricalResistance = Ohms(multiplier.fn(base))
 
-    lazy val formattedValue : String = {
+    lazy val formattedValue : ElectricalResistance = {
       val unitGroup = implicitly[UnitGroup[ElectricalResistance]]
       val formatter = new DefaultFormatter(unitGroup)
-      formatter.inBestUnit(value).toString()
+      formatter.inBestUnit(value)
     }
 
     lazy val colourCodes : Seq[BandColour] = {
-      val baseValueString = baseValue.toString
-      baseValueString.map(c => Band.from(c)).map(bandToBandColour) :+ multiplierToBandColour(r.multiplier)
+      val baseValueString = base.toString
+      val bandColours : Seq[BandColour] = baseValueString.map(c => Band.from(c))
+      val multiplierColour : BandColour = multiplier
+      bandColours :+ multiplierColour
     }
   }
-
-  implicit def bandToBandColour(band: Band) : BandColour = BandColour.valueOf(band.name())
-  implicit def multiplierToBandColour(multiplier: Multiplier) : BandColour = BandColour.valueOf(multiplier.name())
-  implicit def toleranceToBandColour(tolerance: Tolerance) : BandColour = BandColour.valueOf(tolerance.name())
 
 }

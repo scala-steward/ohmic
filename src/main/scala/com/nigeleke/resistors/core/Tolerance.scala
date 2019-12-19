@@ -1,14 +1,21 @@
-package com.nigeleke.resistors.core;
+package com.nigeleke.resistors.core
 
-public enum Tolerance {
-    Brown(1),
-    Red(2),
-    Gold(5),
-    Silver(10);
+import scala.language.implicitConversions
 
-    public final int value;
+sealed trait Tolerance
 
-    Tolerance(int value) {
-        this.value = value;
+object Tolerance {
+
+    case object OnePercent extends Tolerance
+    case object TwoPercent extends Tolerance
+    case object FivePercent extends Tolerance
+    case object TenPercent extends Tolerance
+
+    implicit def toBandColour(tolerance: Tolerance) : BandColour = tolerance match {
+        case OnePercent => BandColour.Brown
+        case TwoPercent => BandColour.Red
+        case FivePercent => BandColour.Gold
+        case TenPercent => BandColour.Silver
     }
+
 }

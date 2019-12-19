@@ -2,8 +2,10 @@ package com.nigeleke.resistors.app
 
 import java.nio.file.Paths
 
-import com.nigeleke.resistors.core.{Resistor, Series}
+import com.nigeleke.resistors.core._
 import com.nigeleke.resistors.document.ResistorDocument
+
+import scala.jdk.CollectionConverters._
 
 object ResistorApp extends App {
 

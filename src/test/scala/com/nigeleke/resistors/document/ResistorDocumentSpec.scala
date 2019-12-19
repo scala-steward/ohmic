@@ -4,7 +4,7 @@ import org.apache.poi.xwpf.usermodel._
 import org.scalatest.{Matchers, WordSpec}
 import java.nio.file._
 
-import com.nigeleke.resistors.core.{Band, Multiplier, Resistor}
+import com.nigeleke.resistors.core._
 
 class ResistorDocumentSpec extends WordSpec with Matchers {
 
@@ -28,7 +28,7 @@ class ResistorDocumentSpec extends WordSpec with Matchers {
     val tempFile = tempFolder.resolve("dataTest.xlsx")
 
     val document = ResistorDocument()
-    val resistor = Resistor(25, Multiplier.Blue)
+    val resistor = Resistor(25, Multiplier.multipliers.head)
     document.withResistor(resistor)
     document.saveAs(tempFile)
 
@@ -44,8 +44,8 @@ class ResistorDocumentSpec extends WordSpec with Matchers {
 
     val document = ResistorDocument()
     val resistors = Seq(
-      Resistor(25, Multiplier.Blue),
-      Resistor(183, Multiplier.Violet))
+      Resistor(25, Multiplier.multipliers.head),
+      Resistor(183, Multiplier.multipliers.head))
     document.withResistors(resistors)
     document.saveAs(tempFile)
 

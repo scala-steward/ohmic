@@ -1,37 +1,39 @@
-package com.nigeleke.resistors.core;
+package com.nigeleke.resistors.core
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import scala.language.implicitConversions
 
-public enum Band {
+sealed trait Band
 
-    Black(0, BandColour.Black),
-    Brown(1, BandColour.Brown),
-    Red(2, BandColour.Red),
-    Orange(3, BandColour.Orange),
-    Yellow(4, BandColour.Yellow),
-    Green(5, BandColour.Green),
-    Blue(6, BandColour.Blue),
-    Violet(7, BandColour.Violet),
-    Grey(8, BandColour.Grey),
-    White(9, BandColour.White);
+object Band {
 
-    private static final Map<Integer, Band> valueToBandMap = new HashMap<>();
+    case object Black extends Band
+    case object Brown extends Band
+    case object Red extends Band
+    case object Orange extends Band
+    case object Yellow extends Band
+    case object Green extends Band
+    case object Blue extends Band
+    case object Violet extends Band
+    case object Grey extends Band
+    case object White extends Band
 
-    static {
-        Arrays.stream(Band.values()).forEach(b -> valueToBandMap.put(b.value, b));
+    implicit def toBandColour(band: Band) : BandColour = band match {
+        case Black => BandColour.Black
+        case Brown => BandColour.Brown
+        case Red => BandColour.Red
+        case Orange => BandColour.Orange
+        case Yellow => BandColour.Yellow
+        case Green => BandColour.Green
+        case Blue => BandColour.Blue
+        case Violet => BandColour.Violet
+        case Grey => BandColour.Grey
+        case White => BandColour.White
     }
 
-    public final int value;
-    public final BandColour colour;
+    implicit def from(c: Char) : Band = fromMap(c)
 
-    Band(int value, BandColour colour) {
-        this.value = value;
-        this.colour = colour;
-    }
+    private val fromMap : Map[Char, Band] = Map(
+        ('0', Black), ('1', Brown), ('2', Red),    ('3', Orange), ('4', Yellow),
+        ('5', Green), ('6', Blue),  ('7', Violet), ('8', Grey),   ('9', White))
 
-    public static final Band from(char c) {
-        return Arrays.stream(Band.values()).filter(v -> v.value == (c - '0')).findFirst().get();
-    }
 }
