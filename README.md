@@ -19,7 +19,7 @@ The objective of this program was simply to turn before  into after.
 
 ![before](images/before.jpg) ![after](images/after.jpg)
 
-(It creates the labels; I still had to sort the resistors)
+Running the app just creates a `resistors.xlsx` file containing resistor labels in the current folder. (The app creates the labels; I still had to sort the resistors!)
 
 ## Documentation
 
