@@ -1,0 +1,659 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/ohmic/core/Resistor.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.ohmic
+</span>32 <span style=''>package core
+</span>33 <span style=''>
+</span>34 <span style=''>import squants.Quantity
+</span>35 <span style=''>import squants.electro.*
+</span>36 <span style=''>import squants.experimental.formatter.DefaultFormatter
+</span>37 <span style=''>import squants.experimental.unitgroups.UnitGroup
+</span>38 <span style=''>import squants.experimental.unitgroups.si.strict.implicits.*
+</span>39 <span style=''>
+</span>40 <span style=''>final case class Resistor(base: Base, multiplier: Multiplier)
+</span>41 <span style=''>
+</span>42 <span style=''>object Resistor:
+</span>43 <span style=''>  </span><span style='background: #AEF1AE'>def setFor</span><span style=''>(series: Seq[Base]) = </span><span style='background: #AEF1AE'>(for
+</span>44 <span style=''></span><span style='background: #AEF1AE'>    base       &lt;- series
+</span>45 <span style=''></span><span style='background: #AEF1AE'>    multiplier &lt;- </span><span style='background: #F0ADAD'>Multiplier.values</span><span style='background: #AEF1AE'>
+</span>46 <span style=''></span><span style='background: #AEF1AE'>  yield Resistor(base, multiplier)).toSet</span><span style=''>
+</span>47 <span style=''>
+</span>48 <span style=''>  lazy val fullSet =
+</span>49 <span style=''>    val emptySet           = </span><span style='background: #AEF1AE'>Set.empty</span><span style=''>[Resistor]
+</span>50 <span style=''>    val unionSeriesWithSet = (set: Set[Resistor], series: Seq[Base]) =&gt; </span><span style='background: #AEF1AE'>set ++ setFor(series)</span><span style=''>
+</span>51 <span style=''>    </span><span style='background: #AEF1AE'>Series.all.foldLeft(emptySet)(unionSeriesWithSet)</span><span style=''>
+</span>52 <span style=''>
+</span>53 <span style=''>  extension (r: Resistor)
+</span>54 <span style=''>    </span><span style='background: #AEF1AE'>def value</span><span style=''>: ElectricalResistance = </span><span style='background: #AEF1AE'>Ohms(r.multiplier(r.base))</span><span style=''>
+</span>55 <span style=''>
+</span>56 <span style=''>    </span><span style='background: #AEF1AE'>def formattedValue</span><span style=''>: ElectricalResistance =
+</span>57 <span style=''>      val unitGroup = summon[UnitGroup[ElectricalResistance]]
+</span>58 <span style=''>      val formatter = </span><span style='background: #AEF1AE'>DefaultFormatter(unitGroup)</span><span style=''>
+</span>59 <span style=''>      </span><span style='background: #AEF1AE'>formatter.inBestUnit(value)</span><span style=''>
+</span>60 <span style=''>
+</span>61 <span style=''>    </span><span style='background: #AEF1AE'>def colourCodes</span><span style=''>: Seq[BandColour] =
+</span>62 <span style=''>      val baseValueString  = r.base.toString
+</span>63 <span style=''>      val bandColours      = </span><span style='background: #F0ADAD'>baseValueString</span><span style='background: #AEF1AE'>.map(BandColour.from)</span><span style=''>
+</span>64 <span style=''>      val multiplierColour = r.multiplier.bandColour
+</span>65 <span style=''>      </span><span style='background: #AEF1AE'>bandColours :+ multiplierColour</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          36
+        </td>
+        <td>
+          1917
+          -
+          1927
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          setFor
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def setFor
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          21
+        </td>
+        <td>
+          1950
+          -
+          2049
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          flatMap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          for\n    base       &lt;- series\n    multiplier &lt;- Multiplier.values\n  yield Resistor(base, multiplier)
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          34
+        </td>
+        <td>
+          1983
+          -
+          2049
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          multiplier &lt;- Multiplier.values\n  yield Resistor(base, multiplier)
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          27
+        </td>
+        <td>
+          1997
+          -
+          2014
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          refArrayOps
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Multiplier.values
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          6
+        </td>
+        <td>
+          1983
+          -
+          2049
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          wrapRefArray
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          multiplier &lt;- Multiplier.values\n  yield Resistor(base, multiplier)
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          9
+        </td>
+        <td>
+          1949
+          -
+          2056
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toSet
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          (for\n    base       &lt;- series\n    multiplier &lt;- Multiplier.values\n  yield Resistor(base, multiplier)).toSet
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          18
+        </td>
+        <td>
+          2108
+          -
+          2111
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Set
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Set
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          2108
+          -
+          2117
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          empty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Set.empty
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          2207
+          -
+          2221
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setFor
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          setFor(series)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          42
+        </td>
+        <td>
+          2200
+          -
+          2221
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ++
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          set ++ setFor(series)
+        </td>
+      </tr><tr>
+        <td>
+          50
+        </td>
+        <td>
+          7
+        </td>
+        <td>
+          2226
+          -
+          2275
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          foldLeft
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Series.all.foldLeft(emptySet)(unionSeriesWithSet)
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          35
+        </td>
+        <td>
+          2341
+          -
+          2367
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Ohms(r.multiplier(r.base))
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          13
+        </td>
+        <td>
+          2307
+          -
+          2316
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          value
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def value
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          30
+        </td>
+        <td>
+          2346
+          -
+          2366
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          r.multiplier(r.base)
+        </td>
+      </tr><tr>
+        <td>
+          55
+        </td>
+        <td>
+          45
+        </td>
+        <td>
+          2373
+          -
+          2391
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          formattedValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def formattedValue
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          38
+        </td>
+        <td>
+          2500
+          -
+          2527
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          DefaultFormatter(unitGroup)
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          20
+        </td>
+        <td>
+          2534
+          -
+          2561
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          inBestUnit
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          formatter.inBestUnit(value)
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          2555
+          -
+          2560
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          value
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          value
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          11
+        </td>
+        <td>
+          2567
+          -
+          2582
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          colourCodes
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def colourCodes
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          8
+        </td>
+        <td>
+          2676
+          -
+          2691
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          augmentString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          baseValueString
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          25
+        </td>
+        <td>
+          2676
+          -
+          2712
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          baseValueString.map(BandColour.from)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          33
+        </td>
+        <td>
+          2696
+          -
+          2711
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          from
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          BandColour.from
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          29
+        </td>
+        <td>
+          2772
+          -
+          2803
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          :+
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          bandColours :+ multiplierColour
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

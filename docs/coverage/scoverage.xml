@@ -1,0 +1,508 @@
+<scoverage 
+statement-count="122" statements-invoked="72" statement-rate="59.02" branch-rate="100.00" version="1.0" timestamp="1677107628808">
+    <packages>
+        <package name="com.nigeleke.ohmic.app" statement-count="35" statements-invoked="0" statement-rate="0.00">
+            <classes>
+                <class 
+                name="com.nigeleke.ohmic.app.ResistorApp$" filename="com/nigeleke/ohmic/app/ResistorApp.scala" statement-count="35" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.ohmic.app/ResistorApp$/&lt;init&gt;" statement-count="14" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1975" end="2051" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="2257" end="2301" line="60" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1830" end="1912" line="46" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1777" end="1804" line="42" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="2257" end="2342" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1830" end="1940" line="47" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1967" end="2253" line="50" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1829" end="1952" line="44" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="2290" end="2300" line="60" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1981" end="2010" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="2314" end="2341" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1830" end="1875" line="45" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="1981" end="1994" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="&lt;init&gt;" start="2257" end="2275" line="59" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.app/ResistorApp$/$anonfun" statement-count="21" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2152" end="2165" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2118" end="2137" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2177" end="2186" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2002" end="2009" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2177" end="2180" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2042" end="2050" line="52" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2023" end="2051" line="52" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="1928" end="1935" line="47" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2142" end="2166" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2142" end="2199" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2072" end="2089" line="54" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2226" end="2239" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2118" end="2121" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="1888" end="1906" line="46" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2217" end="2224" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="1859" end="1874" line="45" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="1888" end="1901" line="46" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2226" end="2232" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2118" end="2199" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="2122" end="2136" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.app" class="ResistorApp$" class-type="Object" full-class-name="com.nigeleke.ohmic.app.ResistorApp$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/app/ResistorApp.scala" method="$anonfun" start="1975" end="2020" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="com.nigeleke.ohmic.core" statement-count="46" statements-invoked="35" statement-rate="76.09">
+            <classes>
+                <class 
+                name="com.nigeleke.ohmic.core.Series$" filename="com/nigeleke/ohmic/core/Series.scala" statement-count="16" statements-invoked="8" statement-rate="50.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Series$/&lt;init&gt;" statement-count="16" statements-invoked="8" statement-rate="50.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="2711" end="2714" line="55" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="2711" end="3734" line="55" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1797" end="1900" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1797" end="1800" line="41" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="2183" end="2186" line="48" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1732" end="1735" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1663" end="1678" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="3769" end="3806" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="3769" end="3772" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="2183" end="2696" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1691" end="1694" line="37" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1914" end="2169" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1663" end="1666" line="35" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1691" end="1718" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1914" end="1917" line="44" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Series$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Series$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Series.scala" method="&lt;init&gt;" start="1732" end="1783" line="39" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.ohmic.core.Resistor$" filename="com/nigeleke/ohmic/core/Resistor.scala" statement-count="23" statements-invoked="21" statement-rate="91.30" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Resistor$/value" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="value" start="2341" end="2367" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="value" start="2307" end="2316" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="value" start="2346" end="2366" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Resistor$/formattedValue" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="formattedValue" start="2500" end="2527" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="formattedValue" start="2534" end="2561" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="formattedValue" start="2555" end="2560" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="formattedValue" start="2373" end="2391" line="55" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Resistor$/colourCodes" statement-count="4" statements-invoked="3" statement-rate="75.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="colourCodes" start="2676" end="2691" line="62" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="colourCodes" start="2567" end="2582" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="colourCodes" start="2772" end="2803" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="colourCodes" start="2676" end="2712" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Resistor$/setFor" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="setFor" start="1917" end="1927" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="setFor" start="1949" end="2056" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="setFor" start="1950" end="2049" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Resistor$/&lt;init&gt;" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="&lt;init&gt;" start="2226" end="2275" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="&lt;init&gt;" start="2108" end="2111" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="&lt;init&gt;" start="2108" end="2117" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Resistor$/$anonfun" statement-count="6" statements-invoked="5" statement-rate="83.33" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="$anonfun" start="2207" end="2221" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="$anonfun" start="1983" end="2049" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="$anonfun" start="1997" end="2014" line="44" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="$anonfun" start="2200" end="2221" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="$anonfun" start="2696" end="2711" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Resistor$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.Resistor$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Resistor.scala" method="$anonfun" start="1983" end="2049" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.ohmic.core.Multiplier" filename="com/nigeleke/ohmic/core/Multiplier.scala" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.ohmic.core/Multiplier/apply" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Multiplier" class-type="Class" full-class-name="com.nigeleke.ohmic.core.Multiplier" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Multiplier.scala" method="apply" start="2445" end="2454" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="Multiplier" class-type="Class" full-class-name="com.nigeleke.ohmic.core.Multiplier" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/Multiplier.scala" method="apply" start="2477" end="2485" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.ohmic.core.BandColour$" filename="com/nigeleke/ohmic/core/BandColour.scala" statement-count="5" statements-invoked="4" statement-rate="80.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.ohmic.core/BandColour$/from" statement-count="5" statements-invoked="4" statement-rate="80.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="BandColour$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.BandColour$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/BandColour.scala" method="from" start="1765" end="1773" line="38" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="BandColour$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.BandColour$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/BandColour.scala" method="from" start="1801" end="1968" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="BandColour$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.BandColour$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/BandColour.scala" method="from" start="1801" end="1972" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="BandColour$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.BandColour$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/BandColour.scala" method="from" start="1801" end="1961" line="39" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.core" class="BandColour$" class-type="Object" full-class-name="com.nigeleke.ohmic.core.BandColour$" source="/home/runner/work/ohmic/ohmic/core/src/main/scala/com/nigeleke/ohmic/core/BandColour.scala" method="from" start="1801" end="1804" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="com.nigeleke.ohmic.document" statement-count="41" statements-invoked="37" statement-rate="90.24">
+            <classes>
+                <class 
+                name="com.nigeleke.ohmic.document.ResistorDocument$" filename="com/nigeleke/ohmic/document/ResistorDocument.scala" statement-count="41" statements-invoked="37" statement-rate="90.24" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/withSheet" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withSheet" start="2027" end="2040" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withSheet" start="2051" end="2084" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/saveAs" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="saveAs" start="2469" end="2479" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="saveAs" start="2531" end="2546" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="saveAs" start="2582" end="2593" line="70" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="saveAs" start="2514" end="2547" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="saveAs" start="2554" end="2575" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/withRow" statement-count="12" statements-invoked="10" statement-rate="83.33" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2681" end="2690" line="74" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2965" end="3004" line="84" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2757" end="2774" line="76" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2829" end="2933" line="81" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2829" end="2877" line="79" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2757" end="2807" line="76" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2697" end="2750" line="75" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2697" end="2714" line="75" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2965" end="2982" line="84" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2829" end="2901" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2829" end="2957" line="82" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRow" start="2607" end="2618" line="73" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/withRows" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRows" start="3057" end="3099" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withRows" start="3018" end="3030" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/nextRow" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="nextRow" start="2402" end="2431" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="nextRow" start="2438" end="2463" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="nextRow" start="2313" end="2324" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="nextRow" start="2350" end="2380" line="63" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/apply" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="apply" start="1930" end="1974" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="apply" start="1898" end="1907" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="apply" start="1930" end="1987" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="apply" start="1947" end="1961" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/withHeader" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2213" end="2230" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2098" end="2112" line="55" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2213" end="2251" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2167" end="2184" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2151" end="2160" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2258" end="2299" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2167" end="2206" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="withHeader" start="2258" end="2275" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.ohmic.document/ResistorDocument$/$anonfun" statement-count="4" statements-invoked="2" statement-rate="50.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="$anonfun" start="3085" end="3098" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="$anonfun" start="2915" end="2932" line="81" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="$anonfun" start="2865" end="2871" line="79" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.ohmic.document" class="ResistorDocument$" class-type="Object" full-class-name="com.nigeleke.ohmic.document.ResistorDocument$" source="/home/runner/work/ohmic/ohmic/app/src/main/scala/com/nigeleke/ohmic/document/ResistorDocument.scala" method="$anonfun" start="2894" end="2900" line="80" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>

@@ -1,0 +1,1114 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/ohmic/document/ResistorDocument.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.ohmic
+</span>32 <span style=''>package document
+</span>33 <span style=''>
+</span>34 <span style=''>import core.*
+</span>35 <span style=''>
+</span>36 <span style=''>import java.io.*
+</span>37 <span style=''>import java.nio.file.*
+</span>38 <span style=''>
+</span>39 <span style=''>import org.apache.poi.xssf.usermodel.*
+</span>40 <span style=''>import squants.Length
+</span>41 <span style=''>import squants.space.Centimeters
+</span>42 <span style=''>
+</span>43 <span style=''>final case class ResistorDocument(document: XSSFWorkbook)
+</span>44 <span style=''>
+</span>45 <span style=''>object ResistorDocument:
+</span>46 <span style=''>
+</span>47 <span style=''>  val sheetName = &quot;Resistor Codes&quot;
+</span>48 <span style=''>
+</span>49 <span style=''>  </span><span style='background: #AEF1AE'>def apply</span><span style=''>(): ResistorDocument = </span><span style='background: #AEF1AE'>ResistorDocument(XSSFWorkbook()).withSheet().withHeader()</span><span style=''>
+</span>50 <span style=''>
+</span>51 <span style=''>  extension (d: ResistorDocument)
+</span>52 <span style=''>    </span><span style='background: #AEF1AE'>def withSheet</span><span style=''>() =
+</span>53 <span style=''>      </span><span style='background: #AEF1AE'>d.document.createSheet(sheetName)</span><span style=''>
+</span>54 <span style=''>      d
+</span>55 <span style=''>
+</span>56 <span style=''>    </span><span style='background: #AEF1AE'>def withHeader</span><span style=''>(): ResistorDocument =
+</span>57 <span style=''>      val row = </span><span style='background: #AEF1AE'>nextRow()</span><span style=''>
+</span>58 <span style=''>      </span><span style='background: #AEF1AE'>row.createCell(0).setCellValue(&quot;Value&quot;)</span><span style=''>
+</span>59 <span style=''>      </span><span style='background: #AEF1AE'>row.createCell(1).setCellValue(&quot;Unit&quot;)</span><span style=''>
+</span>60 <span style=''>      </span><span style='background: #AEF1AE'>row.createCell(2).setCellValue(&quot;Colours&quot;)</span><span style=''>
+</span>61 <span style=''>      d
+</span>62 <span style=''>
+</span>63 <span style=''>    </span><span style='background: #AEF1AE'>def nextRow</span><span style=''>() =
+</span>64 <span style=''>      val sheet    = </span><span style='background: #AEF1AE'>d.document.getSheet(sheetName)</span><span style=''>
+</span>65 <span style=''>      val rowCount = </span><span style='background: #AEF1AE'>sheet.getPhysicalNumberOfRows</span><span style=''>
+</span>66 <span style=''>      </span><span style='background: #AEF1AE'>sheet.createRow(rowCount)</span><span style=''>
+</span>67 <span style=''>
+</span>68 <span style=''>    </span><span style='background: #AEF1AE'>def saveAs</span><span style=''>(filePath: Path) =
+</span>69 <span style=''>      val out = </span><span style='background: #AEF1AE'>FileOutputStream(filePath.toFile)</span><span style=''>
+</span>70 <span style=''>      </span><span style='background: #AEF1AE'>d.document.write(out)</span><span style=''>
+</span>71 <span style=''>      </span><span style='background: #AEF1AE'>out.close()</span><span style=''>
+</span>72 <span style=''>      d
+</span>73 <span style=''>
+</span>74 <span style=''>    </span><span style='background: #AEF1AE'>def withRow</span><span style=''>(resistorRow: ResistorRow): ResistorDocument =
+</span>75 <span style=''>      val row = </span><span style='background: #AEF1AE'>nextRow()</span><span style=''>
+</span>76 <span style=''>      </span><span style='background: #AEF1AE'>row.createCell(0).setCellValue(resistorRow.baseValue)</span><span style=''>
+</span>77 <span style=''>      </span><span style='background: #AEF1AE'>row.createCell(1).setCellValue(resistorRow.symbol)</span><span style=''>
+</span>78 <span style=''>
+</span>79 <span style=''>      val colours = </span><span style='background: #F0ADAD'>resistorRow.colours
+</span>80 <span style=''></span><span style='background: #F0ADAD'>        .filter(_.size != 0)
+</span>81 <span style=''></span><span style='background: #F0ADAD'>        .sortBy(_.size)</span><span style='background: #AEF1AE'>
+</span>82 <span style=''></span><span style='background: #AEF1AE'>        .map(_.mkString(&quot; - &quot;))
+</span>83 <span style=''></span><span style='background: #AEF1AE'>        .mkString(&quot;\n&quot;)</span><span style=''>
+</span>84 <span style=''>
+</span>85 <span style=''>      </span><span style='background: #AEF1AE'>row.createCell(2).setCellValue(colours)</span><span style=''>
+</span>86 <span style=''>      d
+</span>87 <span style=''>
+</span>88 <span style=''>    </span><span style='background: #AEF1AE'>def withRows</span><span style=''>(rows: Seq[ResistorRow]) = </span><span style='background: #AEF1AE'>rows.foldLeft(d)((d0, r) =&gt; d0.withRow(r))</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          1930
+          -
+          1974
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          withSheet
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          ResistorDocument(XSSFWorkbook()).withSheet()
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          65
+        </td>
+        <td>
+          1898
+          -
+          1907
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def apply
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          57
+        </td>
+        <td>
+          1930
+          -
+          1987
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          withHeader
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          ResistorDocument(XSSFWorkbook()).withSheet().withHeader()
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          1947
+          -
+          1961
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          XSSFWorkbook()
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          79
+        </td>
+        <td>
+          2027
+          -
+          2040
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          withSheet
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def withSheet
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          114
+        </td>
+        <td>
+          2051
+          -
+          2084
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createSheet
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          d.document.createSheet(sheetName)
+        </td>
+      </tr><tr>
+        <td>
+          55
+        </td>
+        <td>
+          109
+        </td>
+        <td>
+          2098
+          -
+          2112
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          withHeader
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def withHeader
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          52
+        </td>
+        <td>
+          2151
+          -
+          2160
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          nextRow
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          nextRow()
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          88
+        </td>
+        <td>
+          2167
+          -
+          2184
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createCell
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(0)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          117
+        </td>
+        <td>
+          2167
+          -
+          2206
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setCellValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(0).setCellValue(&quot;Value&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          101
+        </td>
+        <td>
+          2213
+          -
+          2230
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createCell
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(1)
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          58
+        </td>
+        <td>
+          2213
+          -
+          2251
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setCellValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(1).setCellValue(&quot;Unit&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          59
+        </td>
+        <td>
+          72
+        </td>
+        <td>
+          2258
+          -
+          2299
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setCellValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(2).setCellValue(&quot;Colours&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          59
+        </td>
+        <td>
+          66
+        </td>
+        <td>
+          2258
+          -
+          2275
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createCell
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(2)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          87
+        </td>
+        <td>
+          2313
+          -
+          2324
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          nextRow
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def nextRow
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          78
+        </td>
+        <td>
+          2350
+          -
+          2380
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getSheet
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          d.document.getSheet(sheetName)
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          50
+        </td>
+        <td>
+          2402
+          -
+          2431
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getPhysicalNumberOfRows
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          sheet.getPhysicalNumberOfRows
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          118
+        </td>
+        <td>
+          2438
+          -
+          2463
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createRow
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          sheet.createRow(rowCount)
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          2469
+          -
+          2479
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          saveAs
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def saveAs
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          2531
+          -
+          2546
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          toFile
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          filePath.toFile
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          54
+        </td>
+        <td>
+          2514
+          -
+          2547
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          FileOutputStream(filePath.toFile)
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          75
+        </td>
+        <td>
+          2554
+          -
+          2575
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          write
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          d.document.write(out)
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          63
+        </td>
+        <td>
+          2582
+          -
+          2593
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          close
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          out.close()
+        </td>
+      </tr><tr>
+        <td>
+          73
+        </td>
+        <td>
+          102
+        </td>
+        <td>
+          2607
+          -
+          2618
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          withRow
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def withRow
+        </td>
+      </tr><tr>
+        <td>
+          74
+        </td>
+        <td>
+          77
+        </td>
+        <td>
+          2681
+          -
+          2690
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          nextRow
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          nextRow()
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          49
+        </td>
+        <td>
+          2697
+          -
+          2750
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setCellValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(0).setCellValue(resistorRow.baseValue)
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          2697
+          -
+          2714
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createCell
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(0)
+        </td>
+      </tr><tr>
+        <td>
+          76
+        </td>
+        <td>
+          53
+        </td>
+        <td>
+          2757
+          -
+          2774
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createCell
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(1)
+        </td>
+      </tr><tr>
+        <td>
+          76
+        </td>
+        <td>
+          91
+        </td>
+        <td>
+          2757
+          -
+          2807
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setCellValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(1).setCellValue(resistorRow.symbol)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          69
+        </td>
+        <td>
+          2829
+          -
+          2901
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          sortBy
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          resistorRow.colours\n        .filter(_.size != 0)\n        .sortBy(_.size)
+        </td>
+      </tr><tr>
+        <td>
+          79
+        </td>
+        <td>
+          115
+        </td>
+        <td>
+          2829
+          -
+          2877
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          filter
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          resistorRow.colours\n        .filter(_.size != 0)
+        </td>
+      </tr><tr>
+        <td>
+          79
+        </td>
+        <td>
+          76
+        </td>
+        <td>
+          2865
+          -
+          2871
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          size
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          _.size
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          48
+        </td>
+        <td>
+          2894
+          -
+          2900
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          size
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          _.size
+        </td>
+      </tr><tr>
+        <td>
+          81
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          2915
+          -
+          2932
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          mkString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          _.mkString(&quot; - &quot;)
+        </td>
+      </tr><tr>
+        <td>
+          81
+        </td>
+        <td>
+          74
+        </td>
+        <td>
+          2829
+          -
+          2933
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          resistorRow.colours\n        .filter(_.size != 0)\n        .sortBy(_.size)\n        .map(_.mkString(&quot; - &quot;))
+        </td>
+      </tr><tr>
+        <td>
+          82
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          2829
+          -
+          2957
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          mkString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          resistorRow.colours\n        .filter(_.size != 0)\n        .sortBy(_.size)\n        .map(_.mkString(&quot; - &quot;))\n        .mkString(&quot;\\n&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          84
+        </td>
+        <td>
+          86
+        </td>
+        <td>
+          2965
+          -
+          3004
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setCellValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(2).setCellValue(colours)
+        </td>
+      </tr><tr>
+        <td>
+          84
+        </td>
+        <td>
+          60
+        </td>
+        <td>
+          2965
+          -
+          2982
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          createCell
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          row.createCell(2)
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          62
+        </td>
+        <td>
+          3085
+          -
+          3098
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          withRow
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          d0.withRow(r)
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          73
+        </td>
+        <td>
+          3057
+          -
+          3099
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          foldLeft
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          rows.foldLeft(d)((d0, r) =&gt; d0.withRow(r))
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          112
+        </td>
+        <td>
+          3018
+          -
+          3030
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          withRows
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def withRows
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
