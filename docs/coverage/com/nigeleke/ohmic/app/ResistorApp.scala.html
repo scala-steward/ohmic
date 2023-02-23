@@ -60,30 +60,32 @@
 </span>36 <span style=''>
 </span>37 <span style=''>import java.nio.file.Paths
 </span>38 <span style=''>
-</span>39 <span style=''>import scala.jdk.CollectionConverters._
+</span>39 <span style=''>import scala.jdk.CollectionConverters.*
 </span>40 <span style=''>
-</span>41 <span style=''>object ResistorApp extends App:
+</span>41 <span style=''>object ResistorApp:
 </span>42 <span style=''>
-</span>43 <span style=''>  private val series = </span><span style='background: #F0ADAD'>Resistor.setFor(Series.e24)</span><span style=''>
+</span>43 <span style=''>  private val series = </span><span style='background: #AEF1AE'>Resistor.setFor(Series.e24)</span><span style=''>
 </span>44 <span style=''>
-</span>45 <span style=''>  val series5BandMap = </span><span style='background: #F0ADAD'>(Resistor.fullSet
+</span>45 <span style=''>  private val series5BandMap = </span><span style='background: #AEF1AE'>(</span><span style='background: #F0ADAD'>Resistor.fullSet
 </span>46 <span style=''></span><span style='background: #F0ADAD'>    .filter(series.contains)
 </span>47 <span style=''></span><span style='background: #F0ADAD'>    .filter(_.colourCodes.size == 4)
-</span>48 <span style=''></span><span style='background: #F0ADAD'>    .map(r =&gt; (r.value, r)))
-</span>49 <span style=''></span><span style='background: #F0ADAD'>    .toMap</span><span style=''>
+</span>48 <span style=''></span><span style='background: #F0ADAD'>    .map(r =&gt; (r.value, r))</span><span style='background: #AEF1AE'>)
+</span>49 <span style=''></span><span style='background: #AEF1AE'>    .toMap</span><span style=''>
 </span>50 <span style=''>
-</span>51 <span style=''>  val rows = </span><span style='background: #F0ADAD'>for
-</span>52 <span style=''></span><span style='background: #F0ADAD'>    r1 &lt;- series.toList.sortBy(_.value)
-</span>53 <span style=''></span><span style='background: #F0ADAD'>    optR2 = series5BandMap.get(r1.value)
-</span>54 <span style=''></span><span style='background: #F0ADAD'>  yield
-</span>55 <span style=''></span><span style='background: #F0ADAD'>    val v = r1.formattedValue
-</span>56 <span style=''></span><span style='background: #F0ADAD'>    val colourCodes =
-</span>57 <span style=''></span><span style='background: #F0ADAD'>      Seq(r1.colourCodes) :+ (optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour]))
-</span>58 <span style=''></span><span style='background: #F0ADAD'>    ResistorRow(v.value, v.unit.symbol, colourCodes)</span><span style=''>
+</span>51 <span style=''>  private val rows = </span><span style='background: #AEF1AE'>for
+</span>52 <span style=''></span><span style='background: #AEF1AE'>    </span><span style='background: #F0ADAD'>r1 &lt;- series.toList.sortBy(_.value)
+</span>53 <span style=''></span><span style='background: #F0ADAD'>    optR2 = series5BandMap.get(r1.value)</span><span style='background: #AEF1AE'>
+</span>54 <span style=''></span><span style='background: #AEF1AE'>  yield
+</span>55 <span style=''></span><span style='background: #AEF1AE'>    val v = r1.formattedValue
+</span>56 <span style=''></span><span style='background: #AEF1AE'>    val colourCodes =
+</span>57 <span style=''></span><span style='background: #AEF1AE'>      </span><span style='background: #F0ADAD'>Seq(r1.colourCodes)</span><span style='background: #AEF1AE'> :+ (</span><span style='background: #F0ADAD'>optR2.map(_.colourCodes)</span><span style='background: #AEF1AE'>.getOrElse(Seq.empty[BandColour]))
+</span>58 <span style=''></span><span style='background: #AEF1AE'>    ResistorRow(v.value, v.unit.symbol, colourCodes)</span><span style=''>
 </span>59 <span style=''>
-</span>60 <span style=''>  </span><span style='background: #F0ADAD'>ResistorDocument()
-</span>61 <span style=''></span><span style='background: #F0ADAD'>    .withRows(rows.toSeq)
-</span>62 <span style=''></span><span style='background: #F0ADAD'>    .saveAs(Paths.get(&quot;resistors.xlsx&quot;))</span><span style=''>
+</span>60 <span style=''>  </span><span style='background: #AEF1AE'>@main
+</span>61 <span style=''></span><span style='background: #AEF1AE'>  def main</span><span style=''> =
+</span>62 <span style=''>    </span><span style='background: #AEF1AE'>ResistorDocument()
+</span>63 <span style=''></span><span style='background: #AEF1AE'>      .withRows(rows.toSeq)
+</span>64 <span style=''></span><span style='background: #AEF1AE'>      .saveAs(Paths.get(&quot;resistors.xlsx&quot;))</span><span style=''>
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -101,12 +103,12 @@
           42
         </td>
         <td>
-          122
+          123
         </td>
         <td>
-          1777
+          1765
           -
-          1804
+          1792
         </td>
         <td>
           Apply
@@ -117,7 +119,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           Resistor.setFor(Series.e24)
         </td>
       </tr><tr>
@@ -125,12 +127,12 @@
           44
         </td>
         <td>
-          94
+          95
         </td>
         <td>
-          1829
+          1825
           -
-          1952
+          1948
         </td>
         <td>
           Apply
@@ -141,7 +143,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           (Resistor.fullSet\n    .filter(series.contains)\n    .filter(_.colourCodes.size == 4)\n    .map(r =&gt; (r.value, r)))\n    .toMap
         </td>
       </tr><tr>
@@ -152,9 +154,9 @@
           70
         </td>
         <td>
-          1859
+          1855
           -
-          1874
+          1870
         </td>
         <td>
           Apply
@@ -176,9 +178,9 @@
           81
         </td>
         <td>
-          1830
+          1826
           -
-          1875
+          1871
         </td>
         <td>
           Apply
@@ -197,36 +199,12 @@
           46
         </td>
         <td>
-          110
+          86
         </td>
         <td>
-          1830
+          1884
           -
-          1912
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          filter
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          Resistor.fullSet\n    .filter(series.contains)\n    .filter(_.colourCodes.size == 4)
-        </td>
-      </tr><tr>
-        <td>
-          46
-        </td>
-        <td>
-          85
-        </td>
-        <td>
-          1888
-          -
-          1906
+          1902
         </td>
         <td>
           Select
@@ -245,12 +223,12 @@
           46
         </td>
         <td>
-          120
+          121
         </td>
         <td>
-          1888
+          1884
           -
-          1901
+          1897
         </td>
         <td>
           Apply
@@ -266,15 +244,39 @@
         </td>
       </tr><tr>
         <td>
+          46
+        </td>
+        <td>
+          111
+        </td>
+        <td>
+          1826
+          -
+          1908
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          filter
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Resistor.fullSet\n    .filter(series.contains)\n    .filter(_.colourCodes.size == 4)
+        </td>
+      </tr><tr>
+        <td>
           47
         </td>
         <td>
           68
         </td>
         <td>
-          1830
+          1826
           -
-          1940
+          1936
         </td>
         <td>
           Apply
@@ -296,9 +298,9 @@
           56
         </td>
         <td>
-          1928
+          1924
           -
-          1935
+          1931
         </td>
         <td>
           Apply
@@ -317,12 +319,12 @@
           50
         </td>
         <td>
-          106
+          107
         </td>
         <td>
-          1967
+          1971
           -
-          2253
+          2257
         </td>
         <td>
           Apply
@@ -333,32 +335,8 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           for\n    r1 &lt;- series.toList.sortBy(_.value)\n    optR2 = series5BandMap.get(r1.value)\n  yield\n    val v = r1.formattedValue\n    val colourCodes =\n      Seq(r1.colourCodes) :+ (optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour]))\n    ResistorRow(v.value, v.unit.symbol, colourCodes)
-        </td>
-      </tr><tr>
-        <td>
-          51
-        </td>
-        <td>
-          92
-        </td>
-        <td>
-          1975
-          -
-          2051
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          map
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          r1 &lt;- series.toList.sortBy(_.value)\n    optR2 = series5BandMap.get(r1.value)
         </td>
       </tr><tr>
         <td>
@@ -368,9 +346,9 @@
           80
         </td>
         <td>
-          2002
+          2006
           -
-          2009
+          2013
         </td>
         <td>
           Apply
@@ -389,12 +367,60 @@
           51
         </td>
         <td>
+          85
+        </td>
+        <td>
+          1979
+          -
+          2024
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          r1 &lt;- series.toList.sortBy(_.value)\n    optR2
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          112
+        </td>
+        <td>
+          1985
+          -
+          1998
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toList
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          series.toList
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
           61
         </td>
         <td>
-          1981
+          1985
           -
-          2010
+          2014
         </td>
         <td>
           Apply
@@ -413,72 +439,24 @@
           51
         </td>
         <td>
-          84
+          93
         </td>
         <td>
-          1975
+          1979
           -
-          2020
-        </td>
-        <td>
-          Block
-        </td>
-        <td>
-          &lt;none&gt;
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          r1 &lt;- series.toList.sortBy(_.value)\n    optR2
-        </td>
-      </tr><tr>
-        <td>
-          51
-        </td>
-        <td>
-          111
-        </td>
-        <td>
-          1981
-          -
-          1994
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          toList
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          series.toList
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          116
-        </td>
-        <td>
-          2042
-          -
-          2050
+          2055
         </td>
         <td>
           Apply
         </td>
         <td>
-          value
+          map
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          r1.value
+          r1 &lt;- series.toList.sortBy(_.value)\n    optR2 = series5BandMap.get(r1.value)
         </td>
       </tr><tr>
         <td>
@@ -488,9 +466,9 @@
           71
         </td>
         <td>
-          2023
+          2027
           -
-          2051
+          2055
         </td>
         <td>
           Apply
@@ -506,15 +484,39 @@
         </td>
       </tr><tr>
         <td>
+          52
+        </td>
+        <td>
+          117
+        </td>
+        <td>
+          2046
+          -
+          2054
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          value
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          r1.value
+        </td>
+      </tr><tr>
+        <td>
           54
         </td>
         <td>
           55
         </td>
         <td>
-          2072
+          2076
           -
-          2089
+          2093
         </td>
         <td>
           Apply
@@ -525,7 +527,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           r1.formattedValue
         </td>
       </tr><tr>
@@ -533,48 +535,24 @@
           56
         </td>
         <td>
-          119
+          83
         </td>
         <td>
-          2152
+          2146
           -
-          2165
+          2203
         </td>
         <td>
           Apply
         </td>
         <td>
-          colourCodes
+          getOrElse
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
-          _.colourCodes
-        </td>
-      </tr><tr>
-        <td>
-          56
-        </td>
-        <td>
-          95
-        </td>
-        <td>
-          2118
-          -
-          2137
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          Seq(r1.colourCodes)
+        <td style="background: #AEF1AE">
+          optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour])
         </td>
       </tr><tr>
         <td>
@@ -584,9 +562,9 @@
           59
         </td>
         <td>
-          2177
+          2181
           -
-          2186
+          2190
         </td>
         <td>
           Select
@@ -597,32 +575,8 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           Seq.empty
-        </td>
-      </tr><tr>
-        <td>
-          56
-        </td>
-        <td>
-          89
-        </td>
-        <td>
-          2177
-          -
-          2180
-        </td>
-        <td>
-          Ident
-        </td>
-        <td>
-          Seq
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          Seq
         </td>
       </tr><tr>
         <td>
@@ -632,9 +586,9 @@
           47
         </td>
         <td>
-          2142
+          2146
           -
-          2166
+          2170
         </td>
         <td>
           Apply
@@ -653,24 +607,48 @@
           56
         </td>
         <td>
-          82
+          106
         </td>
         <td>
-          2142
+          2122
           -
-          2199
+          2203
         </td>
         <td>
           Apply
         </td>
         <td>
-          getOrElse
+          :+
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Seq(r1.colourCodes) :+ (optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour])
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          109
+        </td>
+        <td>
+          2126
+          -
+          2140
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          colourCodes
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour])
+          r1.colourCodes
         </td>
       </tr><tr>
         <td>
@@ -680,9 +658,9 @@
           67
         </td>
         <td>
-          2118
+          2122
           -
-          2121
+          2125
         </td>
         <td>
           Ident
@@ -701,36 +679,12 @@
           56
         </td>
         <td>
-          105
+          120
         </td>
         <td>
-          2118
+          2156
           -
-          2199
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          :+
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          Seq(r1.colourCodes) :+ (optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour])
-        </td>
-      </tr><tr>
-        <td>
-          56
-        </td>
-        <td>
-          108
-        </td>
-        <td>
-          2122
-          -
-          2136
+          2169
         </td>
         <td>
           Apply
@@ -742,91 +696,19 @@
           
         </td>
         <td style="background: #F0ADAD">
-          r1.colourCodes
+          _.colourCodes
         </td>
       </tr><tr>
         <td>
-          57
-        </td>
-        <td>
-          64
-        </td>
-        <td>
-          2226
-          -
-          2239
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          symbol
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          v.unit.symbol
-        </td>
-      </tr><tr>
-        <td>
-          57
-        </td>
-        <td>
-          103
-        </td>
-        <td>
-          2217
-          -
-          2224
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          value
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          v.value
-        </td>
-      </tr><tr>
-        <td>
-          57
+          56
         </td>
         <td>
           96
         </td>
         <td>
-          2226
+          2122
           -
-          2232
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          unit
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          v.unit
-        </td>
-      </tr><tr>
-        <td>
-          59
-        </td>
-        <td>
-          51
-        </td>
-        <td>
-          2257
-          -
-          2275
+          2141
         </td>
         <td>
           Apply
@@ -838,43 +720,163 @@
           
         </td>
         <td style="background: #F0ADAD">
-          ResistorDocument()
+          Seq(r1.colourCodes)
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          90
+        </td>
+        <td>
+          2181
+          -
+          2184
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Seq
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Seq
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          2221
+          -
+          2228
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          value
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          v.value
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          64
+        </td>
+        <td>
+          2230
+          -
+          2243
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          symbol
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          v.unit.symbol
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          2230
+          -
+          2236
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          unit
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          v.unit
         </td>
       </tr><tr>
         <td>
           60
         </td>
         <td>
-          83
+          57
         </td>
         <td>
-          2257
+          2261
           -
-          2301
+          2277
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          main
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          @main\n  def main
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          51
+        </td>
+        <td>
+          2284
+          -
+          2302
         </td>
         <td>
           Apply
         </td>
         <td>
-          withRows
+          apply
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
-          ResistorDocument()\n    .withRows(rows.toSeq)
+        <td style="background: #AEF1AE">
+          ResistorDocument()
         </td>
       </tr><tr>
         <td>
-          60
+          62
         </td>
         <td>
-          121
+          122
         </td>
         <td>
-          2290
+          2319
           -
-          2300
+          2329
         </td>
         <td>
           Select
@@ -885,44 +887,44 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           rows.toSeq
         </td>
       </tr><tr>
         <td>
-          61
+          62
         </td>
         <td>
-          113
+          84
         </td>
         <td>
-          2257
+          2284
           -
-          2342
+          2330
         </td>
         <td>
           Apply
         </td>
         <td>
-          saveAs
+          withRows
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
-          ResistorDocument()\n    .withRows(rows.toSeq)\n    .saveAs(Paths.get(&quot;resistors.xlsx&quot;))
+        <td style="background: #AEF1AE">
+          ResistorDocument()\n      .withRows(rows.toSeq)
         </td>
       </tr><tr>
         <td>
-          61
+          63
         </td>
         <td>
-          90
+          91
         </td>
         <td>
-          2314
+          2345
           -
-          2341
+          2372
         </td>
         <td>
           Apply
@@ -933,8 +935,32 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           Paths.get(&quot;resistors.xlsx&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          114
+        </td>
+        <td>
+          2284
+          -
+          2373
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          saveAs
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          ResistorDocument()\n      .withRows(rows.toSeq)\n      .saveAs(Paths.get(&quot;resistors.xlsx&quot;))
         </td>
       </tr>
     </table>
