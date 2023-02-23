@@ -1,13 +1,14 @@
 package com.nigeleke.ohmic
-package document
 
 import core.*
+import document.*
 
 import org.apache.poi.xwpf.usermodel.*
 import org.scalatest.*
 import org.scalatest.matchers.should.*
 import org.scalatest.wordspec.*
-import java.nio.file._
+
+import java.nio.file.*
 
 class ResistorDocumentSpec extends AnyWordSpec with Matchers:
 

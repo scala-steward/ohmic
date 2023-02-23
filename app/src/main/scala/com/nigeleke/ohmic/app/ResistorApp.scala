@@ -36,19 +36,19 @@ import document.*
 
 import java.nio.file.Paths
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
-object ResistorApp extends App:
+object ResistorApp:
 
   private val series = Resistor.setFor(Series.e24)
 
-  val series5BandMap = (Resistor.fullSet
+  private val series5BandMap = (Resistor.fullSet
     .filter(series.contains)
     .filter(_.colourCodes.size == 4)
     .map(r => (r.value, r)))
     .toMap
 
-  val rows = for
+  private val rows = for
     r1 <- series.toList.sortBy(_.value)
     optR2 = series5BandMap.get(r1.value)
   yield
@@ -57,6 +57,8 @@ object ResistorApp extends App:
       Seq(r1.colourCodes) :+ (optR2.map(_.colourCodes).getOrElse(Seq.empty[BandColour]))
     ResistorRow(v.value, v.unit.symbol, colourCodes)
 
-  ResistorDocument()
-    .withRows(rows.toSeq)
-    .saveAs(Paths.get("resistors.xlsx"))
+  @main
+  def main =
+    ResistorDocument()
+      .withRows(rows.toSeq)
+      .saveAs(Paths.get("resistors.xlsx"))
