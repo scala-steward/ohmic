@@ -8,7 +8,7 @@ val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 val log4jVersion     = "2.20.0"
 val poiVersion       = "5.2.3"
 val scalatestVersion = "3.2.15"
-val squantsVersion   = "1.6.0"
+val squantsVersion   = "1.8.3"
 
 lazy val root = project
   .in(file("."))
@@ -21,9 +21,14 @@ lazy val root = project
 
 lazy val core = project
   .settings(
-    name           := "ohmic-core",
-    scalaVersion   := scala3Version,
-    headerLicense  := bsd3License,
+    name          := "ohmic-core",
+    scalaVersion  := scala3Version,
+    headerLicense := bsd3License,
+    headerSources / excludeFilter := new SimpleFileFilter(file => {
+      val path        = file.getAbsolutePath
+      val excludePath = "squants"
+      path.contains(excludePath)
+    }),
     publish / skip := true,
     libraryDependencies ++= Seq(
       "org.scalactic" %% "scalactic"    % scalatestVersion,
