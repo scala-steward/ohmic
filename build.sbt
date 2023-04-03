@@ -21,9 +21,14 @@ lazy val root = project
 
 lazy val core = project
   .settings(
-    name           := "ohmic-core",
-    scalaVersion   := scala3Version,
-    headerLicense  := bsd3License,
+    name          := "ohmic-core",
+    scalaVersion  := scala3Version,
+    headerLicense := bsd3License,
+    headerSources / excludeFilter := new SimpleFileFilter(file => {
+      val path        = file.getAbsolutePath
+      val excludePath = "squants"
+      path.contains(excludePath)
+    }),
     publish / skip := true,
     libraryDependencies ++= Seq(
       "org.scalactic" %% "scalactic"    % scalatestVersion,
