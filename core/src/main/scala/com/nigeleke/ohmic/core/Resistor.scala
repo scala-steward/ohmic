@@ -35,7 +35,7 @@ import squants.Quantity
 import squants.electro.*
 import squants.experimental.formatter.DefaultFormatter
 import squants.experimental.unitgroups.UnitGroup
-import squants.experimental.unitgroups.si.strict.implicits.*
+import squants.experimental.unitgroups.si.strict.given
 
 final case class Resistor(base: Base, multiplier: Multiplier)
 
