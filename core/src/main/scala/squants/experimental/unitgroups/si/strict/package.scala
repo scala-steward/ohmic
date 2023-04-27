@@ -4,8 +4,7 @@ import squants.{Dimension, Quantity}
 import squants.{SiUnit, UnitOfMeasure}
 import squants.experimental.unitgroups.UnitGroup
 
-/** UnitGroups for SI.
-  */
+/** UnitGroups for SI. */
 package object strict:
 
   /** implicit support for SI unit groups */
