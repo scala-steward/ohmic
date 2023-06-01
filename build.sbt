@@ -1,4 +1,4 @@
-val scala3Version = "3.3.0-RC5"
+val scala3Version = "3.3.1-RC1"
 
 organizationName := "Nigel Eke"
 organization     := "nigeleke"
@@ -7,7 +7,7 @@ val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 
 val log4jVersion     = "2.20.0"
 val poiVersion       = "5.2.3"
-val scalatestVersion = "3.2.15"
+val scalatestVersion = "3.2.16"
 val squantsVersion   = "1.8.3"
 
 lazy val root = project
