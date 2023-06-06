@@ -10,6 +10,9 @@ val poiVersion       = "5.2.3"
 val scalatestVersion = "3.2.16"
 val squantsVersion   = "1.8.3"
 
+ThisBuild / versionScheme := Some("early-semver")
+ThisBuild / publishTo := Some(Resolver.defaultLocal)
+
 lazy val root = project
   .in(file("."))
   .disablePlugins(HeaderPlugin)
