@@ -5,7 +5,7 @@ organization     := "nigeleke"
 
 val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 
-val log4jVersion     = "2.21.0"
+val log4jVersion     = "2.21.1"
 val poiVersion       = "5.2.4"
 val scalatestVersion = "3.2.17"
 val squantsVersion   = "1.8.3"
